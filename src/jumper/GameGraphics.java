@@ -1,5 +1,7 @@
 package jumper;
 
+/* PItanje za mentora*/
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -57,16 +59,13 @@ public class GameGraphics extends JPanel implements ActionListener {
 		g.fill3DRect(0, 400, 500, 100, true); //
 		for (int i = 0; i < elements.length; i++) {
 			elements[i].draw(g);
-			// elements[i].jump();
-//			if (player.checkCollision(elements[i])){
-//				animation.stop();
-//				JOptionPane.showMessageDialog(null, "Izgubio si");
-//				break;
-//			}
-			if ( elements.length == 0) {
-				JOptionPane.showMessageDialog(null, "Pobjedio si");
-			break;
+//			 elements[i].jump();
+			if (player.checkCollision(elements[i])){
+				animation.stop();
+				JOptionPane.showMessageDialog(null, "Izgubio si");
+				break;
 			}
+			
 		}
 		player.draw(g);
 		g.drawString(Long.toString(points), 50, 50);
@@ -100,7 +99,7 @@ public class GameGraphics extends JPanel implements ActionListener {
 			elements[i] = new Oval(positionX, positionY, widthOval, widthOval,
 					Color.DARK_GRAY, speedXOval, speedYOval, 0, 0, windowWidth,
 					windowHeigth - 100);
-	//		System.out.println("Printa krugove");
+	
 			 
 			elementsCount++;
 			
